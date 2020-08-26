@@ -117,12 +117,12 @@
         <div class="btn-group" data-toggle="buttons">
           <!-- subnav button - visible on smaller size -->
           <label class="btn btn-light btn-sm my-auto">
-            <input type="button" name="button" style="display: none;" ><i class="fas fa-heart" style="color:rgb(165, 82, 243)"></i>
-            <span class="d-none d-md-inline d-lg-inline d-xl-inline"> Favorites</span>
+            <input type="button" name="button" style="display: none;" ><i class="fas fa-store-alt" style="color:rgb(165, 82, 243)"></i>
+            <span class="d-none d-md-inline d-lg-inline d-xl-inline"> Home</span>
           </label>
           <label class="btn btn-light btn-sm my-auto ">
             <input type="button" name="button" style="display: none;" ><i class="fas fa-shopping-cart" style="color:rgb(165, 82, 243)"></i>
-            <span class="d-none d-md-inline d-lg-inline d-xl-inline"> Go to Cart</span>
+            <span class="d-none d-md-inline d-lg-inline d-xl-inline"> Checkout</span>
           </label>
           <label class="btn btn-light btn-sm my-auto border-right">
             <input type="button" name="button" style="display: none;" ><i class="fas fa-history" style="color:rgb(165, 82, 243)"></i>
@@ -130,10 +130,10 @@
           </label>
           <!-- subnav button - visible on any size -->
           <label class="btn btn-light btn-sm my-auto border-left">
-            <input type="radio" name="options" id="option1"  style="display: none;" checked><i class="fas fa-th-large" style="color:rgb(165, 82, 243)"></i>
+            <input type="button" name="button" id="option1"  style="display: none;" checked><i class="fas fa-th-large" style="color:rgb(165, 82, 243)"></i>
           </label>
           <label class="btn btn-light btn-sm my-auto">
-            <input type="radio" name="options" id="option2" style="display: none;" ><i class="fas fa-list" style="color:rgb(165, 82, 243)"></i>
+            <input type="button" name="button" id="option2" style="display: none;" ><i class="fas fa-list" style="color:rgb(165, 82, 243)"></i>
           </label>
             
         </div>
@@ -159,8 +159,12 @@
         <div class="container-fluid">
           <br>
           <h4 class="text-left">Favorited:</h4>
-            <div class="row border" style="max-height: 45vh; overflow-y: auto;">
+            <div class="row" style="max-height: 45vh; overflow-y: auto;">
               <!-- Fave Cards -->
+              <div class="col-12 p-0 m-0 h-100 text-center" style="color: grey;">
+                <h5>You do not have any yet!</h5>
+              </div>
+
               <div class="col-3 p-0 m-0 h-100">
                 <img
                 src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
@@ -168,12 +172,13 @@
               </div>
               <div class="col-9 p-0 m-0 h-100 d-inline">
                 <label class="btn btn-white btn-sm float-right ">
-                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart" style="color:red"></i>
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
                 </label>
                 <div class="card-body text-left pt-0 mt-2">
-                  <span class="card-title" style="font-size: 0.8em;">Kaos Eiger : 2</span>
+                  <span class="card-title" style="font-size: 0.8em;">Kaos Eiger</span>
                 </div>
               </div>
+
               <div class="col-3 p-0 m-0 h-100">
                 <img
                 src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
@@ -181,10 +186,10 @@
               </div>
               <div class="col-9 p-0 m-0 h-100 d-inline">
                 <label class="btn btn-white btn-sm float-right ">
-                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart" style="color:red"></i>
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
                 </label>
                 <div class="card-body text-left pt-0 mt-2">
-                  <span class="card-title" style="font-size: 0.8em;">Kaos Eiger : 2</span>
+                  <span class="card-title" style="font-size: 0.8em;">Kaos Eiger</span>
                 </div>
               </div>
 
@@ -205,7 +210,7 @@
         <div class="row">
 
           <!-- cards - block -->
-          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 mt-4" style="min-height: 45vh;">
+          <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 mt-4" style="min-height: 45vh;">
             <div class="card border-5 rounded shadow" style="width: 100%; min-height: 100%;">
               <img class="card-img-top mx-auto my-3"
                 src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
@@ -214,7 +219,6 @@
                 <p class="card-title text-center">Kaos Eiger geometri unisex</p>
                 <span class="card-text" style="font-size:0.8em;">Rp.132.000,00</span> <br>
                 <span class="card-text" style="font-size:0.8em;">Stok: 22</span> <br>
-                <span class="card-text" style="font-size:0.8em;">Category: Clothes</span> <br>
                 <label class="btn btn-white btn-lg float-right mb-0">
                   <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
                 </label>
@@ -224,9 +228,10 @@
               </div>
               
             </div>
-          </div>
+          </div> -->
+
           <!-- cards - list -->
-          <div class="container p-2" style="height: 180px;">
+          <!-- <div class="container p-2" style="height: 180px;">
             <div class="row border m-2">
               <div class="col-3 p-0 m-0 h-100">
                 <img
@@ -244,17 +249,107 @@
                   <h4 class="card-title">Kaos Eiger geometri unisex</h4>
                   <span class="card-text">Rp.132.000,00</span> <br>
                   <span class="card-text">Stok: 22</span> <br>
-                  <span class="card-text">Category: Clothes</span> <br>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
+
+
+          <!-- Item Detail -->
+          <!-- <div class="container p-5">
+            <div class="text-center">
+              <img src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg" alt="Gambar">
+              <br>
+              <br>
+              <div>
+                <h1>Kaos Eiger geometri unisex</h1>
+                <h4 class="text-secondary">Rp.132.000,00</h4>
+                <h4 class="text-secondary">Warehouse Stock : 22</h4>
+                <h4 class="text-secondary">Category : Clothes</h4>
+
+                <div class="container d-inline-flex justify-content-center">
+                  <label class="btn btn-white btn-lg mb-0">
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-left" style="color:rgb(165, 82, 243)"></i>
+                  </label>
+
+                  <label class="btn btn-white btn-lg mb-0">
+                    <input type="text" name="text" class="w-25 text-center" value="1" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" ></i>
+                  </label>
+
+                  <label class="btn btn-white btn-lg mb-0">
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-right" style="color:rgb(165, 82, 243)"></i>
+                  </label>
+                </div>
+                <button class="btn btn-outline-light mx-1 mx-auto mt-2" style="background-color: rgb(193, 130, 252);" >Add to Cart</button>
+                <p style="color: red;" class="mt-2">Sorry! Something went wrong!</p>
+              </div>
+              </div>
+            </div>
+            <div class="pt-5 container-fluid d-inline justify-content-between">
+              
+                <button class="btn btn-success" >Back</button>
+              <label class="btn btn-white btn-lg float-right ">
+                <input type="button" name="button" style="display: none;" ><i class="fas fa-heart" style="color:red"></i>
+              </label>
+              <label class="btn btn-white btn-lg float-right ">
+                <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
+              </label>
+      
+              
+
+            </div>
+          </div> -->
+
+          <!-- checkout -->
 
           
 
+          <div class="container p-2" style="height: 140px;">
+            <h1 style="font-weight: 700;color:rgb(165, 82, 243)">Checkout:</h1> <br>
+
+            <!-- checkout cards -->
+            <div class="row border-bottom m-2">
+              <div class="col-3 p-0 m-0 h-100">
+                <img
+                src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
+                alt="No image Preview" style="max-height: 100px; object-fit: cover;">
+              </div>
+              <div class="col-9 p-0 m-0 h-100 d-inline">
+                <label class="btn btn-white btn-lg float-right ">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-trash-alt" style="color:rgb(165, 82, 243)"></i>
+                </label>
+                <label class="btn btn-white btn-lg float-right mb-0">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-edit"  style="color:rgb(165, 82, 243)"></i>
+                </label>
+                <div class="card-body text-left pt-0 mt-2">
+                  <h4 class="card-title">Kaos Eiger geometri unisex</h4>
+                  <span class="card-text">Rp.132.000,00</span> <br>
+                  <span class="card-text">Stok: 22</span> <br>
+                  <label class="btn btn-white btn-lg float-right mb-0 p-0">
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-check-circle" style="color:green"></i>  
+                  </label>
+                  <label class="float-right mb-0" style="width: 120px">    
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-left" style="color:rgb(165, 82, 243)"></i>
+                    <input type="text" name="text" class="w-25 text-center" value="1" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" ></i>
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-right" style="color:rgb(165, 82, 243)"></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <h3 style=" font-weight: 700;">Total: Rp.332.000,00</h3>
+              <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);" type="submit">Checkout</button>
+          <br><h3 style=" color: green;">Thank you for purchasing! You will be redirected soon..</h3>
+            </div>
+
+            
+          </div>
+
+
+
 
         </div>
-
       </div>
 
 

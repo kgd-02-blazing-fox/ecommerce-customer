@@ -1,17 +1,17 @@
 <template>
   <div class="">
   <b-navbar toggleable="lg" type="dark">
-    <b-navbar-brand> <h2><b>
+    <b-navbar-brand class=""><b>
       <i class="fas fa-store-alt"></i> foxshop
-    </b></h2></b-navbar-brand>
+    </b></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <div id="nav">
-          <router-link to="/">Home</router-link> |
-          <router-link to="/about">About</router-link>
+          <router-link to="/">products</router-link> |
+          <router-link to="/about"> <i class="fas fa-shopping-cart"></i> your cart</router-link>
         </div>
         <!-- <b-nav-item href="#">Link</b-nav-item>
         <b-nav-item href="#" disabled>Disabled</b-nav-item> -->

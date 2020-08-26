@@ -6,11 +6,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/login',
-    name: 'Login',
     component: () => import(/* webpackChunkName: "login" */ '../views/LoginPage.vue'),
     children: [
       {
         path: '',
+        name: 'Login',
         component: () => import(/* webpackChunkName: "login" */ '../components/Login.vue')
       },
       {
@@ -21,8 +21,18 @@ const routes = [
   },
   {
     path: '/',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Home',
+        component: () => import(/* webpackChunkName: "productcards" */ '../components/Products.vue')
+      },
+      {
+        path: '/details/:productId',
+        component: () => import(/* webpackChunkName: "detailsproduct" */ '../components/Details.vue')
+      }
+    ]
   }
 ]
 

@@ -1,27 +1,26 @@
 <template>
   <div>
-    <div class="container-fluid shadow" id="colors">
+    <div class="container-fluid shadow sticky-top" id="colors">
     <Nav/>
     </div>
 
-    <div class="col">
+    <div class="position-sticky sticky-top colini">
+        <Alert
+        v-if="alert.isOn === true"
+        :message="alert.message"
+        />
+    </div>
+
+    <div v-if="!this.$route.params.productId">
       <Promo/>
     </div>
-    <h1>home</h1>
 
     <div class="continer-fluid">
       <div class="col">
         <div class="row">
-          <div class="col-2 bg-warning">kiri</div>
-          <div class="col bg-success">
-            <div class="row">
-              <ProductCards
-              v-for="item in products"
-              :key="item.id"
-              :item="item"
-              />
-            </div>
-          </div>
+
+          <router-view/>
+
         </div>
       </div>
     </div>
@@ -31,21 +30,18 @@
 <script>
 import Nav from '../components/Nav.vue'
 import Promo from '@/components/Promo.vue'
-import ProductCards from '@/components/ProductCards.vue'
+import Alert from '@/components/Alert.vue'
 
 export default {
   name: 'Home',
   components: {
     Nav,
     Promo,
-    ProductCards
-  },
-  created () {
-    this.$store.dispatch('fetchProducts')
+    Alert
   },
   computed: {
-    products () {
-      return this.$store.getters.products
+    alert () {
+      return this.$store.state.alert
     }
   }
 }

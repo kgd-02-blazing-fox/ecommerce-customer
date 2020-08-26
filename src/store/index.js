@@ -7,11 +7,31 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    spesificProduct: {},
+    alert: {
+      isOn: false,
+      message: ''
+    }
   },
   mutations: {
     SET_PRODUCTS (state, payload) {
       state.products = payload
+    },
+    SET_SPESIFIC_PRODUCTS (state, payload) {
+      state.spesificProduct = payload
+    },
+    ALERT (state, payload) {
+      state.alert = {
+        isOn: true,
+        message: payload
+      }
+      setTimeout((_) => {
+        state.alert = {
+          isOn: false,
+          message: payload
+        }
+      }, 3000)
     }
   },
   actions: {
@@ -66,11 +86,27 @@ export default new Vuex.Store({
           console.table(err)
           context.commit('ALERT', 'FETCH FAILED')
         })
+    },
+    fetchProductsSpesific (context, id) {
+      ServerAPI({
+        method: 'GET',
+        url: 'products/user/' + id
+      })
+        .then(({ data }) => {
+          context.commit('SET_SPESIFIC_PRODUCTS', data)
+        })
+        .catch((err) => {
+          console.table(err)
+          context.commit('ALERT', 'FETCH FAILED')
+        })
     }
   },
   getters: {
     products (state) {
       return state.products
+    },
+    spesificProduct (state) {
+      return state.spesificProduct
     }
   }
 })

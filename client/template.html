@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-signin-client_id"
+    content="124739969343-prbrk319k79id28m8304jhq25r3ugce4.apps.googleusercontent.com">
   <link rel="icon" href="./trolley.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -12,27 +14,100 @@
 </head>
 
 <body>
+  <!-- navbar -->
   <nav class="navbar navbar-light justify-content-between" style="background-color: rgb(165, 82, 243);">
     <div class="container">
       <a class="navbar-brand" href="">
-        <img
-        src="./trolleywhite.png"
-        alt="E-commerce" height="30" style="object-fit: cover;">
-        <span style="font-weight: 700; color: white;"> My E-commerce</span>
+        <img src="./trolleywhite.png" alt="E-commerce" height="30">
+        <span style="font-weight: 700; color: white;;"> E-commerce</span>
       </a>
       <form class="form-inline">
-        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"type="submit">Logout</button>
-        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"type="submit">Login</button>
-        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"type="submit">Register</button>
+        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"
+          type="submit">Logout</button>
+        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"
+          type="submit">Login</button>
+        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"
+          type="submit">Register</button>
       </form>
     </div>
-
-
   </nav>
+
+
+  <!-- login card -->
+  <!-- <div class="container-fluid mt-5">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="border col-md-5" style="padding: 30px; border-radius: 40px;">
+          <h2 class="justify-content-center text-center">E-Commerce Customer Login</h2><br>
+          <form id="form-login">
+            <div class="form-group">
+              <label for="login-email">Email address</label>
+              <input type="email" class="form-control" placeholder="johndoe@mail.com" required>
+              <p style="color: red;">*Please enter your email</p>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" class="form-control" placeholder="******" required>
+              <p style="color: red;">*Please enter your password</p>
+            </div>
+            <div class="row" style="display: flex; flex-direction: column; margin: auto; align-items: center;">
+              <button type="submit" class="btn btn-primary" style="width: 100px;">Login</button><br>
+              <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
+            </div>
+          </form>
+          <div class="col-md-12 text-center">
+            <p style="color: red;">Sorry! Something went wrong!</p>
+            <p class="text-secondary">Doesn't have account yet? <span onclick="" class="text-primary">Register</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <!-- register card -->
+  <!-- <div class="container-fluid mt-5">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="border col-md-5" style="padding: 30px; border-radius: 40px;">
+          <h3 class="justify-content-center text-center">E-Commerce Customer Register</h3><br>
+          <form id="form-register">
+            <div class="form-group">
+              <label for="register-email">Name</label>
+              <input type="email" class="form-control" placeholder="John Doe" required>
+              <p style="color: red;">*Please enter your name</p>
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email address</label>
+              <input type="email" class="form-control" placeholder="johndoe@mail.com" required>
+              <p style="color: red;">*Please enter your email</p>
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <input type="password" class="form-control" placeholder="******" required>
+              <p style="color: red;">*Please enter your password</p>
+            </div>
+            <div class="row" style="display: flex; flex-direction: column; margin: auto; align-items: center;">
+              <button type="submit" class="btn" style="width: 100px;">Submit</button><br>
+            </div>
+          </form>
+          <div class="col-md-12 text-center">
+            <p style="color: red;">Sorry! Something went wrong!</p>
+            <p class="text-secondary">Already have an account? <span onclick=""class="text-primary">Login</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- main body -->
+
 </body>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <style>
   * {
     font-family: 'Nunito', sans-serif;
   }
 </style>
+
 </html>

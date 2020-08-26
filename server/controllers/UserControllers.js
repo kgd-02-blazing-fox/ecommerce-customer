@@ -90,7 +90,6 @@ class UserControllers {
         }, process.env.JWT_SECRET)
       })
     } catch (error) {
-      // console.log(error)
       next(error)
     }
   }

@@ -97,33 +97,35 @@ describe("Admin - getProducts",()=>{
         })
     })
 
-    test("admin getProducts failed - token does not belong to authenticated",done=>{
-        request(app)
-        .get("/products")
-        .set({"access_token":
-            jwt.sign({
-                name:'John',
-                email: 'johndairy@ecommerce.com',
-                role:'customer'
-           },process.env.JWT_SECRET || "123456")
-        })
-        .end((err,res)=>{
-            expect(res.status).toBe(401)
-            expect(res.body).toBeInstanceOf(Object)
-            expect(res.body).toHaveProperty("message", "Access denied")
-            done()
-        })
-    })
+    // DEPRECATED TESTS - GET now does not require access_token
 
-    test("admin getProducts failed - invalid token",done=>{
-        request(app)
-        .get("/products")
-        .set({"access_token":"access_token"})
-        .end((err,res)=>{
-            expect(res.status).toBe(500)
-            expect(res.body).toBeInstanceOf(Object)
-            expect(res.body).toHaveProperty("message", "Internal error")
-            done()
-        })
-    })
+    // test("admin getProducts failed - token does not belong to authenticated",done=>{
+    //     request(app)
+    //     .get("/products")
+    //     .set({"access_token":
+    //         jwt.sign({
+    //             name:'John',
+    //             email: 'johndairy@ecommerce.com',
+    //             role:'customer'
+    //        },process.env.JWT_SECRET || "123456")
+    //     })
+    //     .end((err,res)=>{
+    //         expect(res.status).toBe(401)
+    //         expect(res.body).toBeInstanceOf(Object)
+    //         expect(res.body).toHaveProperty("message", "Access denied")
+    //         done()
+    //     })
+    // })
+
+    // test("admin getProducts failed - invalid token",done=>{
+    //     request(app)
+    //     .get("/products")
+    //     .set({"access_token":"access_token"})
+    //     .end((err,res)=>{
+    //         expect(res.status).toBe(500)
+    //         expect(res.body).toBeInstanceOf(Object)
+    //         expect(res.body).toHaveProperty("message", "Internal error")
+    //         done()
+    //     })
+    // })
 })

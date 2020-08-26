@@ -1,6 +1,6 @@
 "use strict"
 
-const {User} = require("../models/index.js")
+const {User, Cart, Favorite} = require("../models/index.js")
 const jwt = require("jsonwebtoken")
 
 class Access {
@@ -24,7 +24,33 @@ class Access {
         try {
             if (req.access_role === "admin") {
                 next()
-            } else throw new Error("Unauthorized access")
+            } else {
+                throw new Error("Unauthorized access")
+            }
+        } catch (error) { 
+            next(error)
+        }
+    }
+    static async cartAuthorize(req,res,next) {
+        try {
+          const cart = await Cart.findByPk(req.params.id)
+            if (cart.userId === req.access_id) {
+                next()
+            } else {
+                throw new Error("Unauthorized access")
+            }
+        } catch (error) { 
+            next(error)
+        }
+    }
+    static async favoriteAuthorize(req,res,next) {
+        try {
+          const favorite = await Favorite.findByPk(req.params.id)
+            if (favorite.userId === req.access_id) {
+                next()
+            } else {
+                throw new Error("Unauthorized access")
+            }
         } catch (error) { 
             next(error)
         }

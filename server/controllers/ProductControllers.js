@@ -1,8 +1,6 @@
 "use strict"
 
-const {User,Product} = require("../models/index.js")
-const jwt = require("jsonwebtoken")
-const bcrypt = require("bcryptjs")
+const {Product} = require("../models/index.js")
 
 class ProductControllers {
     static async getProducts(req,res,next) {

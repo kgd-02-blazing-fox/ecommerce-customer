@@ -1,6 +1,5 @@
 <template>
   <div class="row py-5 p-4 bg-white rounded shadow-sm">
-    {{items}}
     <div class="col-lg-6">
       <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
       <div class="p-4">

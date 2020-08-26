@@ -9,9 +9,13 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <div id="nav">
-          <router-link to="/">products</router-link> |
-          <router-link to="/about"> <i class="fas fa-shopping-cart"></i> your cart</router-link>
+        <div id="nav" class="row ml-3">
+          <div class="mr-2" @click="closeCart">
+          <router-link to="/">products</router-link>
+          </div>
+          <div class="ml-2">
+          <b id="nav" @click="openCart"> <i class="fas fa-shopping-cart"></i> your cart</b>
+          </div>
         </div>
         <!-- <b-nav-item href="#">Link</b-nav-item>
         <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
@@ -31,8 +35,8 @@
                 <i class="fas fa-user"></i> Welcome <b> {{user}} </b>
               </em>
             </template>
-            <b-dropdown-item href="#">foxPay : 0 </b-dropdown-item>
-            <b-dropdown-item @click.prevent="logout">LOG OUT</b-dropdown-item>
+            <b-dropdown-item href="#"> <i class="fas fa-money-bill-wave-alt"></i> <b> foxPay </b> : 0 </b-dropdown-item>
+            <b-dropdown-item @click.prevent="logout"><i class="fas fa-sign-out-alt"></i> LOG OUT</b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-navbar-nav v-if="!isLogin" right>
@@ -59,6 +63,16 @@ export default {
     logout () {
       this.isLogin = false
       this.$store.dispatch('logout')
+    },
+    openCart () {
+      if (localStorage.getItem('access_token')) {
+        this.$emit('openCart')
+      } else {
+        this.$store.commit('ALERT', 'please login first')
+      }
+    },
+    closeCart () {
+      this.$emit('closeCart')
     }
   },
   computed: {

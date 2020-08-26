@@ -1,6 +1,7 @@
 <template>
-  <div @click.prevent="details(item.id)" class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+  <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
     <b-card
+      @click.prevent="details(item.id)"
       :title="item.name"
       :img-src="item.image_url"
       img-top
@@ -14,7 +15,8 @@
         </div>
       </b-card-text>
 
-      <b><i class="fas fa-cart-plus fa-lg"></i> add to cart</b>
+        <b><i class="fas fa-cart-plus fa-lg"></i> buy now! </b>
+
       <template v-slot:footer>
         <em><b>Stock left : </b> {{item.stock}} </em>
       </template>

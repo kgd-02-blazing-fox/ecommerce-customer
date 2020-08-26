@@ -33,6 +33,18 @@ const routes = [
         component: () => import(/* webpackChunkName: "detailsproduct" */ '../components/Details.vue')
       }
     ]
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: () => import(/* webpackChunkName: "checkout" */ '../views/Checkout.vue'),
+    beforeEnter: (to, from, next) => {
+      if (localStorage.getItem('access_token')) {
+        next()
+      } else {
+        next('/')
+      }
+    }
   }
 ]
 

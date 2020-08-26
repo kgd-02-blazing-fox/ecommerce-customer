@@ -12,9 +12,14 @@
                 </b-card-text>
 
                 <!-- <b-card-text>{{product}}</b-card-text> -->
-
-                <a href="#" class="card-link">add to cart</a>
-                <b-link href="#" class="card-link">another product</b-link>
+                <form>
+                  <div>
+                    <label for="range-1">maximum 5 item for each transaction</label>
+                    <b-form-input id="range-1" v-model="quantity" type="range" min="1" max="5"></b-form-input>
+                  </div>
+                </form>
+                <a @click.prevent="addNewToCart(product.id)" class="card-link">add {{ quantity }} to cart</a>
+                <b-link @click.prevent="back" class="card-link">another product</b-link>
 
           </b-card-body>
         </b-col>
@@ -29,8 +34,29 @@
 <script>
 export default {
   name: 'Details',
+  data () {
+    return {
+      quantity: 1
+    }
+  },
   created () {
     this.$store.dispatch('fetchProductsSpesific', Number(this.$route.params.productId))
+  },
+  methods: {
+    addNewToCart (id) {
+      const payload = {
+        id,
+        quantity: Number(this.quantity)
+      }
+      if (localStorage.getItem('access_token')) {
+        this.$store.dispatch('addToCart', payload)
+      } else {
+        this.$store.commit('ALERT', 'please login first')
+      }
+    },
+    back () {
+      this.$router.push('/')
+    }
   },
   computed: {
     product () {

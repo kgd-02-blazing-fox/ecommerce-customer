@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="container-fluid shadow sticky-top" id="colors">
-    <Nav/>
+    <Nav
+    @openCart="openCart"
+    @closeCart="closeCart"
+    />
     </div>
 
     <div class="position-sticky sticky-top colini">
@@ -11,7 +14,15 @@
         />
     </div>
 
-    <div v-if="!this.$route.params.productId">
+    <div
+    v-if="isOpenCart"
+    class="position-sticky sticky-top colini d-flex justify-content-center">
+      <Cart
+      @closeCart="closeCart"
+      />
+    </div>
+
+    <div class="my-2" v-if="!this.$route.params.productId">
       <Promo/>
     </div>
 
@@ -31,13 +42,28 @@
 import Nav from '../components/Nav.vue'
 import Promo from '@/components/Promo.vue'
 import Alert from '@/components/Alert.vue'
+import Cart from '@/components/Cart.vue'
 
 export default {
   name: 'Home',
+  data () {
+    return {
+      isOpenCart: false
+    }
+  },
+  methods: {
+    openCart () {
+      this.isOpenCart = true
+    },
+    closeCart () {
+      this.isOpenCart = false
+    }
+  },
   components: {
     Nav,
     Promo,
-    Alert
+    Alert,
+    Cart
   },
   computed: {
     alert () {
@@ -49,7 +75,8 @@ export default {
 
 <style scoped>
 #colors{
-  background-color: #2e86de;
+  background: -webkit-linear-gradient(to right, #f1c40f, #d35400);
+  background: linear-gradient(to right, #e67e22, #f1c40f);
 }
 
 </style>

@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 #alertpos{
-  z-index: 1;
+  z-index: 9;
   position: absolute;
   width: 100%;
 }

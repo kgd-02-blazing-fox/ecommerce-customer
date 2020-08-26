@@ -1,6 +1,7 @@
 "use strict"
 
-const {Cart} = require("../models")
+const {Cart,Product} = require("../models")
+const { Op } = require("sequelize");
 
 class CartControllers {
   static async getCarts(req,res,next) {
@@ -13,13 +14,31 @@ class CartControllers {
   }
   static async postCarts(req,res,next) {
     try {
-      const result = await Cart.create({
-        productId: req.body.productId,
-        userId: req.access_id,
-        amount: req.body.amount,
-        history: false
-      })
-      res.status(201).json(result)
+      const cart = await Cart.findOne({where:{
+        [Op.and]: [
+          { productId:req.body.productId },
+          { userId:req.access_id }
+        ]
+      }})
+      if (cart) {
+        const result = await Cart.increment('amount',{
+          by: req.body.amount,
+        }, {where:{
+          [Op.and]: [
+            { productId:req.body.productId },
+            { userId:req.access_id }
+          ]
+        }})
+        res.status(200).json(result)
+      } else {
+        const result = await Cart.create({
+          productId: req.body.productId,
+          userId: req.access_id,
+          amount: req.body.amount,
+          history: false
+        })
+        res.status(201).json(result)
+      }
     } catch (error) {
       next(error)
     }

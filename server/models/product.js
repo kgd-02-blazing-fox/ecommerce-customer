@@ -5,7 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
-      // define association here
+      Product.belongsToMany(models.User,{
+        through:'UserProducts'
+      })
     }
   };
   Product.init({

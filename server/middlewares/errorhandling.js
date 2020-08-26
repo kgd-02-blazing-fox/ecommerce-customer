@@ -17,8 +17,14 @@ function errorHandling(err,req,res,next) {
             case "Wrong email/password combination":
                 res.status(400).json({"message":"Username/password didn't match"})
                 break;
+            case "Did you login via Social Login previously?":
+                res.status(400).json({"message":"Did you login via Social Login previously?"})
+                break;
             case "Please fill in the email":
                 res.status(400).json({"message":"Please fill in the email"})
+                break;
+            case "Please fill in your name":
+                res.status(400).json({"message":"Please fill in your name"})
                 break;
             case "Please fill in the password":
                 res.status(400).json({"message":"Please fill in the password"})

@@ -6,7 +6,10 @@ module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
       Product.belongsToMany(models.User,{
-        through:'UserProducts'
+        through:'Carts'
+      })
+      Product.belongsToMany(models.User,{
+        through:'Favorites'
       })
     }
   };

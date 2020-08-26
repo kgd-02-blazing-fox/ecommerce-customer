@@ -7,8 +7,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    products: []
   },
   mutations: {
+    FETCH_PRODUCTS (state, payload) {
+      state.products = payload
+    }
   },
   actions: {
     postRegister (_, payload) {
@@ -36,6 +40,19 @@ export default new Vuex.Store({
           localStorage.setItem('token', data.token)
           router.push({ path: '/' })
         })
+    },
+    fetchProducts ({ commit }) {
+      axios({
+        method: 'GET',
+        url: '/products',
+        headers: {
+          token: localStorage.getItem('token')
+        }
+      })
+        .then(({ data }) => {
+          commit('FETCH_PRODUCTS', data)
+        })
+        .catch(console.log)
     }
   },
   modules: {

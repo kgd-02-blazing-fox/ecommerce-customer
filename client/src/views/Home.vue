@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="row justify-content-center">
+      <Product
+      v-for="product in products"
+      :key="product.id"
+      :product="product"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Product from '@/components/Product.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Product
+  },
+  created () {
+    this.$store.dispatch('fetchProducts')
+  },
+  computed: {
+    products () {
+      return this.$store.state.products
+    }
   }
 }
 </script>

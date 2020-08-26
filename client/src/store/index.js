@@ -7,11 +7,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    products: []
+    products: [],
+    charts: []
   },
   mutations: {
     FETCH_PRODUCTS (state, payload) {
       state.products = payload
+    },
+    FETCH_CHARTS (state, payload) {
+      state.charts = payload
     }
   },
   actions: {
@@ -44,13 +48,61 @@ export default new Vuex.Store({
     fetchProducts ({ commit }) {
       axios({
         method: 'GET',
-        url: '/products',
+        url: '/products'
+      })
+        .then(({ data }) => {
+          commit('FETCH_PRODUCTS', data)
+        })
+        .catch(console.log)
+    },
+    fetchCharts ({ commit }) {
+      axios({
+        method: 'GET',
+        url: '/chart/show',
         headers: {
           token: localStorage.getItem('token')
         }
       })
         .then(({ data }) => {
-          commit('FETCH_PRODUCTS', data)
+          commit('FETCH_CHARTS', data.charts)
+        })
+        .catch(console.log)
+    },
+    addToCart (_, payload) {
+      // console.log(payload)
+      axios({
+        method: 'POST',
+        url: '/chart/add',
+        headers: {
+          token: localStorage.getItem('token')
+        },
+        data: {
+          quantity: payload.quantity,
+          ProductId: payload.ProductId
+        }
+      })
+        .then(({ data }) => {
+          console.log('Success Add')
+          console.log(data)
+          router.push({ path: '/chart' })
+        })
+        .catch(console.log)
+    },
+    removeFromCart (_, payload) {
+      axios({
+        method: 'DELETE',
+        url: '/chart/delete',
+        headers: {
+          token: localStorage.getItem('token')
+        },
+        data: {
+          ProductId: payload.ProductId
+        }
+      })
+        .then(({ data }) => {
+          console.log('Success Delete')
+          console.log(data)
+          router.push({ path: '/chart' })
         })
         .catch(console.log)
     }

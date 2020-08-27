@@ -9,6 +9,7 @@ const UserControllers = require("../controllers/UserControllers.js")
 
 
 router.post("/login",UserControllers.login)
+router.post("/Glogin",UserControllers.Glogin)
 router.post("/register",UserControllers.register)
 router.use("/products",products)
 router.use("/favorites",favorites)

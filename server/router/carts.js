@@ -7,6 +7,7 @@ const Access = require("../middlewares/access.js")
 
 router.get("/",Access.authenticate,CartControllers.getCarts)
 router.post("/",Access.authenticate,CartControllers.postCarts)
+router.delete("/",Access.authenticate,CartControllers.delAllCarts)
 router.put("/:id",Access.authenticate,Access.cartAuthorize,CartControllers.putCarts)
 router.delete("/:id",Access.authenticate,Access.cartAuthorize,CartControllers.delCarts)
 

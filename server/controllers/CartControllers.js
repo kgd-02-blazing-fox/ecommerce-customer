@@ -6,7 +6,7 @@ const { Op } = require("sequelize");
 class CartControllers {
   static async getCarts(req,res,next) {
     try {
-      const cart = await Cart.findAll({where:{userId:req.access_id}})
+      const cart = await Cart.findAll({where:{UserId:req.access_id}, include: Product})
       res.status(200).json(cart)
     } catch (error) {
       next(error)
@@ -16,30 +16,34 @@ class CartControllers {
     try {
       const cart = await Cart.findOne({where:{
         [Op.and]: [
-          { productId:req.body.productId },
-          { userId:req.access_id }
+          { ProductId:req.body.ProductId },
+          { UserId:req.access_id }
         ]
       }})
+      const product = await Product.decrement('stock',{
+        by: req.body.amount, where:{id:req.body.ProductId}
+      })
       if (cart) {
         const result = await Cart.increment('amount',{
           by: req.body.amount,
         }, {where:{
           [Op.and]: [
-            { productId:req.body.productId },
-            { userId:req.access_id }
+            { ProductId:req.body.ProductId },
+            { UserId:req.access_id }
           ]
         }})
         res.status(200).json(result)
       } else {
         const result = await Cart.create({
-          productId: req.body.productId,
-          userId: req.access_id,
+          ProductId: req.body.ProductId,
+          UserId: req.access_id,
           amount: req.body.amount,
           history: false
         })
         res.status(201).json(result)
       }
     } catch (error) {
+      console.log(error)
       next(error)
     }
   }
@@ -56,9 +60,18 @@ class CartControllers {
   }
   static async delCarts(req,res,next) {
     try {
-      const cart = await Cart.FindByPk(req.params.id)
-      const destroyed = await Cart.destroy({where:{id:req.params.id}})
-      res.status(200).json(cart)
+        const cart = await Cart.FindByPk(req.params.id)
+        const destroyed = await Cart.destroy({where:{id:req.params.id}})
+        res.status(200).json(cart)
+    } catch (error) {
+      next(error)
+    }
+  }
+  static async delAllCarts(req,res,next) {
+    try {
+        const cart = await Cart.findAll({where:{UserId:req.access_id}})
+        const destroyed = await Cart.destroy({where:{UserId:req.access_id}})
+        res.status(200).json({message: 'ok'})
     } catch (error) {
       next(error)
     }

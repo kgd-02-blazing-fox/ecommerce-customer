@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Cart.init({
-    userId: DataTypes.INTEGER,
-    productId: DataTypes.INTEGER,
+    UserId: DataTypes.INTEGER,
+    ProductId: DataTypes.INTEGER,
     amount: DataTypes.INTEGER,
     history: DataTypes.BOOLEAN,
     purchasedAt: DataTypes.DATE

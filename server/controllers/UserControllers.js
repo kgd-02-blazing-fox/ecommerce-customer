@@ -66,6 +66,7 @@ class UserControllers {
   }
   static async register(req,res,next) {
     try {
+      console.log(req.body) //-<<<<<<<<<<<<<<<<<<<<<<
       const {name,email,password} = req.body
       const Glogged = await User.findOne({where:{email}})
       if (Glogged) {

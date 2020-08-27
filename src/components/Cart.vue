@@ -27,6 +27,11 @@
                   </th>
                 </tr>
               </thead>
+              <tbody v-if="items.length === 0">
+                <div class="container-fluid d-flex justify-content-center">
+                  <h3>it is empty.. lets start shopping :)</h3>
+                </div>
+              </tbody>
               <CartItems
               id="spesifik"
               v-for="item in items"
@@ -77,11 +82,17 @@ export default {
 
 <style scoped>
 #cartpos{
-  background-color: #f39c12;
+  background: -webkit-linear-gradient(to right, #f1c40f, #d35400);
+  background: linear-gradient(to right, #e67e22, #f1c40f);
   z-index: 1;
   position: absolute;
   overflow: auto;
   height: 80vh;
+}
+
+#colors{
+  background: -webkit-linear-gradient(to right, #f1c40f, #d35400);
+  background: linear-gradient(to right, #e67e22, #f1c40f);
 }
 
 #spesifik{

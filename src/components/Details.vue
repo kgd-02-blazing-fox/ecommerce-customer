@@ -1,6 +1,6 @@
 <template>
   <div class="container d-flex justify-content-center mt-5">
-    <b-card no-body class="col-8 overflow-hidden">
+    <b-card no-body class="col-8 overflow-hidden shadow">
       <b-row no-gutters>
         <b-col md="6">
           <b-card-img :src="product.image_url" alt="Image" class="rounded-0"></b-card-img>

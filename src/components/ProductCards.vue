@@ -1,12 +1,11 @@
 <template>
   <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
     <b-card
-      @click.prevent="details(item.id)"
       :title="item.name"
       :img-src="item.image_url"
       img-top
       tag="article"
-      class="mb-1 hovers"
+      class="mb-1"
     >
       <b-card-text>
         <div class="row">
@@ -15,7 +14,13 @@
         </div>
       </b-card-text>
 
-        <b><i class="fas fa-cart-plus fa-lg"></i> buy now! </b>
+        <div v-if="item.stock !== 0" class="hovers">
+        <b @click.prevent="details(item.id)" ><i class="fas fa-cart-plus fa-lg"></i> buy now! </b>
+        </div>
+
+        <div v-if="item.stock === 0" class="hovers">
+        <b>ITEM OUT OF STOCK!</b>
+        </div>
 
       <template v-slot:footer>
         <em><b>Stock left : </b> {{item.stock}} </em>

@@ -358,7 +358,7 @@ Providing a E-commerce services which can be added, manipulated, and deleted lat
         },{
                 ProductId: 3,
                 UserId: 1,
-                amount: 2-0,
+                amount: 2,
                 history: false
                 Product: {Product info #3}
         }]
@@ -368,10 +368,59 @@ Providing a E-commerce services which can be added, manipulated, and deleted lat
         Code: 400 BAD REQUEST
         Content: { message : "Invalid token" }
         
+        Code: 400 BAD REQUEST
+        Content: { message : "Validation Error" }
+        
         Code: 500 INTERNAL ERROR
         Content: { message : "Internal error" }
         
- ## POST user cart:
+ ## PUT user cart:
+
+* URL:
+
+        /carts
+
+* Method:
+
+        PUT
+
+* URL Params:
+
+        id=[integer]
+
+* Data Params:
+
+        Required:
+        
+        amount=[integer]
+        
+        Required headers:
+        
+        access_token=[string]
+
+* Success Response:
+
+        Code: 200 OK
+        Content: {
+                ProductId: 1,
+                UserId: 1,
+                amount: 50,
+                history: false
+                Product: {Product info #1}
+        }
+
+* Error Response:
+
+        Code: 400 BAD REQUEST
+        Content: { message : "Invalid token" }
+        
+        Code: 400 BAD REQUEST
+        Content: { message : "Validation Error" }
+        
+        Code: 500 INTERNAL ERROR
+        Content: { message : "Internal error" }
+        
+## POST user cart:
 
 * URL:
 
@@ -414,6 +463,97 @@ Providing a E-commerce services which can be added, manipulated, and deleted lat
         
         Code: 400 BAD REQUEST
         Content: { message : "Validation Error" }
+        
+        Code: 500 INTERNAL ERROR
+        Content: { message : "Internal error" }
+
+
+## PATCH user cart:
+
+* URL:
+
+        /carts
+
+* Method:
+
+        PATCH
+
+* URL Params:
+
+        None
+
+* Data Params:
+
+        Required headers:
+        
+        access_token=[string]
+
+* Success Response:
+
+        Code: 200 OK
+        Content: [3,[{
+                ProductId: 1,
+                UserId: 1,
+                amount: 20,
+                history: true
+                Product: {Product info #1}
+        },{
+                ProductId: 3,
+                UserId: 1,
+                amount: 20,
+                history: true
+                Product: {Product info #3}
+        },{
+                ProductId: 29,
+                UserId: 1,
+                amount: 20,
+                history: true
+                Product: {Product info #29}
+        }]]
+
+* Error Response:
+
+        Code: 400 BAD REQUEST
+        Content: { message : "Invalid token" }
+        
+        Code: 500 INTERNAL ERROR
+        Content: { message : "Internal error" }
+
+## DELETE user cart:
+
+* URL:
+
+        /carts
+
+* Method:
+
+        DELETE
+
+* URL Params:
+
+        id=[integer]
+
+* Data Params:
+
+        Required headers:
+        
+        access_token=[string]
+
+* Success Response:
+
+        Code: 200 OK
+        Content: {
+                ProductId: 1,
+                UserId: 1,
+                amount: 20,
+                history: true
+                Product: {Product info #1}
+        }
+
+* Error Response:
+
+        Code: 400 BAD REQUEST
+        Content: { message : "Invalid token" }
         
         Code: 500 INTERNAL ERROR
         Content: { message : "Internal error" }

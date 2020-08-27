@@ -17,7 +17,7 @@
                   </label>
 
                   <label class="btn btn-white btn-lg mb-0">
-                    <input type="text" name="text" class="w-25 text-center" value="1" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" v-model="amount">
+                    <input type="number" name="text" class="w-25 text-center" value="1" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" v-model="amount">
                   </label>
 
                   <label class="btn btn-white btn-lg mb-0">

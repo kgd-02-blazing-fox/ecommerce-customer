@@ -22,7 +22,7 @@
                   </label>
                   <label class="float-right mb-0" style="width: 120px">
                     <input type="button" name="button" style="display: none;"><i class="fas fa-chevron-circle-left" style="color:rgb(165, 82, 243)" @click.prevent="decrement"></i>
-                    <input type="text" name="text" class="w-25 text-center" v-model="amount" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" value="10">
+                    <input type="number" name="text" class="w-25 text-center" v-model="amount" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);">
                     <input type="button" name="button" style="display: none;"><i class="fas fa-chevron-circle-right" style="color:rgb(165, 82, 243)" @click.prevent="increment"></i>
                   </label>
                 </div>

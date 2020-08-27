@@ -36,6 +36,7 @@ export default {
     logout () {
       localStorage.removeItem('access_token')
       this.$store.commit('SET_LOGGED')
+      this.$store.commit('SET_CART', [])
       this.$router.push('/login')
     },
     login () {

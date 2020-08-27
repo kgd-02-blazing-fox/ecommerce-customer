@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import Axios from '../server/Axios.js'
 
 export default {
   name: 'RegisterCard',
@@ -54,9 +54,9 @@ export default {
   },
   methods: {
     register () {
-      axios({
+      Axios({
         method: 'POST',
-        url: 'http://localhost:3000/register',
+        url: 'register',
         data: {
           name: this.name,
           email: this.email,
@@ -65,7 +65,7 @@ export default {
       })
         .then(response => {
           localStorage.setItem('access_token', response.data.access_token)
-          this.$router.push('/shop')
+          this.$router.push('/')
         })
         .catch(err => {
           console.log(err.response.data)

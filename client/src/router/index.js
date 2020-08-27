@@ -5,19 +5,37 @@ import LoginCard from '../components/LoginCard.vue'
 import RegisterCard from '../components/RegisterCard.vue'
 import ItemInfo from '../components/ItemInfo.vue'
 import Checkout from '../views/Checkout.vue'
+import CardContainer from '../views/CardContainer.vue'
+import History from '../views/History.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/shop',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/iteminfo/:id',
-    name: 'Item Info',
-    component: ItemInfo
+    path: '/',
+    component: Home,
+    children: [
+      {
+        path: '/',
+        name: 'Home',
+        component: CardContainer
+      },
+      {
+        path: '/iteminfo/:id',
+        name: 'ItemInfo',
+        component: ItemInfo
+      },
+      {
+        path: '/checkout',
+        name: 'Checkout',
+        component: Checkout
+      },
+      {
+        path: '/history',
+        name: 'History',
+        component: History
+      }
+    ]
   },
   {
     path: '/login',
@@ -28,11 +46,6 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: RegisterCard
-  },
-  {
-    path: '/checkout',
-    name: 'Checkout',
-    component: Checkout
   }
 ]
 

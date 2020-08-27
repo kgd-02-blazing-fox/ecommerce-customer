@@ -42,7 +42,7 @@
 
 <script>
 import GoogleLogin from 'vue-google-login'
-import axios from 'axios'
+import Axios from '../server/Axios.js'
 export default {
   name: 'LoginCard',
   data () {
@@ -63,25 +63,26 @@ export default {
   methods: {
     onSignIn (googleUser) {
       const idToken = googleUser.getAuthResponse().id_token
-      axios({
+      Axios({
         method: 'POST',
-        url: 'http://localhost:3000/Glogin',
+        url: 'Glogin',
         headers: {
           google_token: idToken
         }
       })
         .then(response => {
+          console.log(response)
           localStorage.setItem('access_token', response.data.access_token)
-          this.$router.push('/shop')
+          this.$router.push('/')
         })
         .catch(err => {
           this.errorMessage = err.response.data.message
         })
     },
     login () {
-      axios({
+      Axios({
         method: 'POST',
-        url: 'http://localhost:3000/login',
+        url: 'login',
         data: {
           email: this.email,
           password: this.password
@@ -89,7 +90,7 @@ export default {
       })
         .then(response => {
           localStorage.setItem('access_token', response.data.access_token)
-          this.$router.push('/shop')
+          this.$router.push('/')
         })
         .catch(err => {
           console.log(err.response.data)

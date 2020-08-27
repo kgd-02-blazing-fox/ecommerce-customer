@@ -34,7 +34,7 @@ class Access {
     static async cartAuthorize(req,res,next) {
         try {
           const cart = await Cart.findByPk(req.params.id)
-            if (cart.userId === req.access_id) {
+            if (cart.UserId === req.access_id) {
                 next()
             } else {
                 throw new Error("Unauthorized access")

@@ -42,6 +42,18 @@ class ProductControllers {
             next(error)
         }
     }
+    static async patchProducts(req,res,next) {
+        try {
+          console.log('reached controllers')
+            let {amount,id} = req.body
+            let result = await Product.decrement('stock',{
+                by: amount,
+                where:{id},returning:true})
+            res.status(200).json(result)
+        } catch (error) {
+            next(error)
+        }
+    }
     static async delProducts(req,res,next) {
         try {
             let result = await Product.findByPk(req.params.id)

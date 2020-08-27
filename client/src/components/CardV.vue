@@ -8,10 +8,7 @@
                 @click.prevent="toDetail"
                 >
               </div>
-              <div class="col-9 p-0 m-0 h-100 d-inline">
-                <label class="btn btn-white btn-lg float-right ">
-                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart" style="color:red"></i>
-                </label>
+              <div class="col-9 p-0 m-0 h-100 d-inline" @click.prevent="toDetail">
                 <label class="btn btn-white btn-lg float-right mb-0">
                   <input type="button" name="button" style="display: none;" @click.prevent="toDetail"><i class="fas fa-info-circle" style="color:gray"></i>
                 </label>

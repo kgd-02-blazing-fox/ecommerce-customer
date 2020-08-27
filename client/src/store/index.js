@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import Axios from '../server/Axios.js'
 
 Vue.use(Vuex)
 
@@ -9,7 +9,10 @@ export default new Vuex.Store({
     isLogged: false,
     products: [],
     cart: [],
-    favorite: []
+    favorite: [],
+    nameFilter: '',
+    categoryFilter: '',
+    view: false
   },
   mutations: {
     SET_LOGGED (state) {
@@ -24,44 +27,45 @@ export default new Vuex.Store({
     },
     SET_FAVORITE (state, payload) {
       state.favorite = payload
+    },
+    SET_VIEW (state, payload) {
+      state.view = payload
+    },
+    SET_NAME (state, payload) {
+      state.nameFilter = payload
+    },
+    SET_CATEGORY (state, payload) {
+      state.categoryFilter = payload
     }
   },
   actions: {
     fetch (context) {
       if (localStorage.getItem('access_token')) {
-        axios({
+        return Axios({
           method: 'GET',
-          url: 'http://localhost:3000/products'
+          url: 'favorites',
+          headers: { access_token: localStorage.getItem('access_token') }
         })
           .then(response => {
-            context.commit('SET_PRODUCTS', response.data)
-            return axios({
+            context.commit('SET_FAVORITE', response.data)
+            return Axios({
               method: 'GET',
-              url: 'http://localhost:3000/carts',
+              url: 'carts',
               headers: { access_token: localStorage.getItem('access_token') }
             })
           })
           .then(response => {
             context.commit('SET_CART', response.data)
-            return axios({
+            return Axios({
               method: 'GET',
-              url: 'http://localhost:3000/favorites',
-              headers: { access_token: localStorage.getItem('access_token') }
+              url: 'products'
             })
           })
-          .then(response => {
-            context.commit('SET_FAVORITE', response.data)
-          })
-          .catch(err => console.log(err))
       } else {
-        axios({
+        return Axios({
           method: 'GET',
-          url: 'http://localhost:3000/products'
+          url: 'products'
         })
-          .then(response => {
-            context.commit('SET_PRODUCTS', response.data)
-          })
-          .catch(err => console.log(err))
       }
     }
   },

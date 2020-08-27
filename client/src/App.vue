@@ -31,13 +31,12 @@ export default {
   },
   methods: {
     toShop () {
-      this.$router.push('/shop')
+      this.$router.push('/')
     },
     logout () {
-      console.log('here')
       localStorage.removeItem('access_token')
-      this.$router.push('/login')
       this.$store.commit('SET_LOGGED')
+      this.$router.push('/login')
     },
     login () {
       this.$router.push('/login')

@@ -5,17 +5,18 @@ const {Favorite} = require("../models")
 class FavoriteControllers {
   static async getFavorites(req,res,next) {
     try {
-      const favorite = await Favorite.findAll({where:{userId:req.access_id}})
+      const favorite = await Favorite.findAll({where:{UserId:req.access_id}})
       res.status(200).json(favorite)
     } catch (error) {
+      console.log(error)
       next(error)
     }
   }
   static async postFavorites(req,res,next) {
     try {
       const result = await Favorite.create({
-        productId: req.body.productId,
-        userId: req.access_id,
+        ProductId: req.body.ProductId,
+        UserId: req.access_id,
       })
       res.status(201).json(result)
     } catch (error) {

@@ -1,5 +1,11 @@
 <template>
   <div id="color" class="container rounded mt-3">
+    <div class="position-sticky sticky-top colini">
+      <Alert
+      v-if="alert.isOn === true"
+      :message="alert.message"
+      />
+    </div>
     <div class="pt-3">
       <h1 id="colorhead"> <strong> checkout </strong> </h1>
     </div>
@@ -55,12 +61,14 @@
 <script>
 import CheckoutList from '../components/CheckoutList.vue'
 import CheckoutInfos from '../components/CheckoutInfos.vue'
+import Alert from '@/components/Alert.vue'
 
 export default {
   name: 'checkout',
   components: {
     CheckoutList,
-    CheckoutInfos
+    CheckoutInfos,
+    Alert
   },
   created () {
     this.$store.dispatch('getUserCart')
@@ -71,6 +79,9 @@ export default {
     },
     user () {
       return localStorage.getItem('user')
+    },
+    alert () {
+      return this.$store.state.alert
     }
   }
 }

@@ -210,7 +210,10 @@ export default new Vuex.Store({
       })
         .then(({ data }) => {
           context.dispatch('getUserCart')
-          router.push('/')
+          context.commit('ALERT', 'thank you for your purchase')
+          setTimeout((_) => {
+            router.push('/')
+          }, 3000)
         })
         .catch((err) => {
           context.commit('ALERT', err.message)

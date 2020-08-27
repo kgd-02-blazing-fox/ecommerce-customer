@@ -39,7 +39,7 @@
             <div class="col">
               <b-link id="khusus" @click.prevent="closeCart"> <h3> <i class="fas fa-undo-alt"></i> continue shopping </h3> </b-link>
             </div>
-            <div class="col">
+            <div class="col" v-if="items.length !== 0" >
               <router-link id="khusus" to="/checkout"> <h3> <i class="fas fa-cash-register"></i> checkout </h3> </router-link>
             </div>
           </div>

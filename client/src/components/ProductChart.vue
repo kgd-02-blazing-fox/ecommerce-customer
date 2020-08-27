@@ -17,15 +17,15 @@
         </div>
         <div class="col-6">
           <div class="row justify-content-center" style="margin-top:10px;">
-            <button class="btn btn-primary">-</button>
+            <button @click.prevent="minCart" class="btn btn-primary">-</button>
             <div class="col-4" style="background-color:white; font-weight:bold; text-align:center; padding:10px" >
               {{ cart.quantity }}
             </div>
-            <button @click="addToCart" class="btn btn-primary">+</button>
+            <button @click.prevent="addToCart" class="btn btn-primary">+</button>
           </div>
         </div>
       </div>
-      <button @click="removeFromCart" class="btn btn-danger" style="margin-top:20px">Remove</button>
+      <button @click.prevent="removeFromCart" class="btn btn-danger" style="margin-top:20px">Remove</button>
     </div>
   </div>
 </template>
@@ -42,6 +42,13 @@ export default {
         quantity: 1,
         ProductId: this.cart.ProductId
       })
+      this.$store.dispatch('fetchCharts')
+    },
+    minCart () {
+      this.$store.dispatch('minCart', {
+        ProductId: this.cart.ProductId
+      })
+      this.$store.dispatch('fetchCharts')
     },
     removeFromCart () {
       this.$store.dispatch('removeFromCart', {
@@ -49,6 +56,7 @@ export default {
       })
     }
   }
+
 }
 </script>
 

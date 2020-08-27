@@ -48,10 +48,14 @@ export default {
   },
   methods: {
     addToCart () {
-      this.$store.dispatch('addToCart', {
-        quantity: 1,
-        ProductId: this.product.id
-      })
+      if (localStorage.getItem('token')) {
+        this.$store.dispatch('addToCart', {
+          quantity: 1,
+          ProductId: this.product.id
+        })
+      } else {
+        this.$router.push('/login')
+      }
     }
   }
 }

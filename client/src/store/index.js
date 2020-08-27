@@ -25,10 +25,11 @@ export default new Vuex.Store({
         password: payload.password
       })
         .then(({ data }) => {
-          console.log('===================')
-          console.log('Berhasil Register')
-          console.log(data)
-          console.log('===================')
+          // console.log('===================')
+          // console.log('Berhasil Register')
+          // console.log(data)
+          // console.log('===================')
+          router.push({ path: '/login' })
         })
     },
     postLogin (_, payload) {
@@ -37,10 +38,10 @@ export default new Vuex.Store({
         password: payload.password
       })
         .then(({ data }) => {
-          console.log('===================')
-          console.log('Berhasil Login')
-          console.log(data)
-          console.log('===================')
+          // console.log('===================')
+          // console.log('Berhasil Login')
+          // console.log(data)
+          // console.log('===================')
           localStorage.setItem('token', data.token)
           router.push({ path: '/' })
         })
@@ -68,7 +69,7 @@ export default new Vuex.Store({
         })
         .catch(console.log)
     },
-    addToCart (_, payload) {
+    addToCart ({ dispatch }, payload) {
       // console.log(payload)
       axios({
         method: 'POST',
@@ -82,13 +83,14 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          console.log('Success Add')
-          console.log(data)
-          router.push({ path: '/chart' })
+          // console.log('Success Add')
+          // console.log(data)
+          dispatch('fetchCharts')
+          // router.push({ path: '/chart' })
         })
         .catch(console.log)
     },
-    removeFromCart (_, payload) {
+    removeFromCart ({ dispatch }, payload) {
       axios({
         method: 'DELETE',
         url: '/chart/delete',
@@ -100,9 +102,28 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          console.log('Success Delete')
-          console.log(data)
-          router.push({ path: '/chart' })
+          // console.log('Success Delete')
+          // console.log(data)
+          dispatch('fetchCharts')
+        })
+        .catch(console.log)
+    },
+    minCart ({ dispatch }, payload) {
+      axios({
+        method: 'PATCH',
+        url: '/chart/min',
+        headers: {
+          token: localStorage.getItem('token')
+        },
+        data: {
+          ProductId: payload.ProductId
+        }
+      })
+        .then(({ data }) => {
+          // console.log('Success Min')
+          // console.log(data)
+          dispatch('fetchCharts')
+          // router.push({ path: '/chart' })
         })
         .catch(console.log)
     }

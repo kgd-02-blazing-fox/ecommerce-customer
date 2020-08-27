@@ -2,8 +2,8 @@
   <tr>
     <td>{{ cart.Product.name }}</td>
     <td>{{ cart.quantity }}</td>
-    <td>Rp. {{ cart.Product.price }}</td>
-    <td>Rp. {{ cart.Product.price*cart.quantity }}</td>
+    <td>Rp. {{ cart.Product.price-(cart.Product.price*20/100) }}</td>
+    <td>Rp. {{ (cart.Product.price-(cart.Product.price*20/100))*cart.quantity }}</td>
   </tr>
 </template>
 

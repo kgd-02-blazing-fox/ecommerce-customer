@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Navbar />
     <div class="row justify-content-center">
       <Product
       v-for="product in products"
@@ -12,12 +13,14 @@
 
 <script>
 // @ is an alias to /src
+import Navbar from '@/components/Navbar.vue'
 import Product from '@/components/Product.vue'
 
 export default {
   name: 'Home',
   components: {
-    Product
+    Product,
+    Navbar
   },
   created () {
     this.$store.dispatch('fetchProducts')

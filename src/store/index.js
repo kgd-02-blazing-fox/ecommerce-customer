@@ -55,8 +55,10 @@ export default new Vuex.Store({
           router.push('/')
         })
         .catch((err) => {
-          router.push('/register')
-          context.commit('ALERT', err.message)
+          context.commit('ALERT', 'login failed, lets create an account')
+          setTimeout((_) => {
+            router.push('/register')
+          }, 3000)
           console.log(err)
         })
     },
@@ -74,8 +76,10 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          router.push('/login')
           context.commit('ALERT', 'Welcome and please login')
+          setTimeout((_) => {
+            router.push('/login')
+          }, 3000)
         })
         .catch((err) => {
           router.push('/register')

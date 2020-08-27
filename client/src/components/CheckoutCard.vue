@@ -63,13 +63,14 @@ export default {
           .then(response => {
             this.successMessage = 'Product successfuly updated!'
             this.$store.dispatch('fetch')
+              .then(response => { this.amount = 1 })
               .catch(err => console.log(err.response.data))
-            setTimeout(() => { this.successMessage = '' }, 2000)
+            setTimeout(() => { this.successMessage = '' }, 1000)
           })
           .catch(err => {
             this.successMessage = ''
             this.errorMessage = err.response.data.message
-            setTimeout(() => { this.errorMessage = '' }, 2000)
+            setTimeout(() => { this.errorMessage = '' }, 1000)
           })
       }
     },

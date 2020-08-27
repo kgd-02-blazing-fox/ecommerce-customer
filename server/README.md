@@ -252,3 +252,169 @@ Providing a E-commerce services which can be added, manipulated, and deleted lat
         
         Code: 500 INTERNAL ERROR
         Content: { message : "Internal error" }
+        
+## POST login user:
+
+* URL:
+
+        /login
+
+* Method:
+
+        POST
+
+* URL Params:
+
+        None
+
+* Data Params:
+
+        Required:
+
+        email=[string]
+        password=[string]
+
+* Success Response:
+
+        Code: 200 OK
+        Content: {
+        "access_token": "eyJhbAKDFasJDFAI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSfyjkfstssgsgfWRyaWNrIiwiZW1haWwiOiJsYXVyZW50aXVzZWRyaWNAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVWFoS0RqZlZTSTViSktHUE1YOHovZUdXY1oxNmZPeWlpasdasdnEiLCJvcmdhbml6YXRpb24iOiJIYWNrdGl2OCIsInVwZGF0ZWRBdxcvbnxvbnyDg6NTY6NTEuOTQzWiIsImNyZWF0ZWRBdCI6IjIwMjAtMDgtMTRUMDg6NTY6NTEuOTQzWiIsImlhdCI6MTU5NzM5NTQxMn0.Yzf7ASzXCr4i56hZXxtFA1aE95guf5dXXtYuDcBJAZM"
+        }
+
+* Error Response:
+
+        Code: 400 BAD REQUEST
+        Content: { message : "Validation error" }
+        
+        Code: 500 INTERNAL ERROR
+        Content: { message : "Internal error" }
+
+## POST register user:
+
+* URL:
+
+        /register
+
+* Method:
+
+        POST
+
+* URL Params:
+
+        None
+
+* Data Params:
+
+        Required:
+
+        name=[string]
+        email=[string]
+        password=[string]
+
+* Success Response:
+
+        Code: 200 OK
+        Content: {
+        "access_token": "eyJhbAKDFasJDFAI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSfyjkfstssgsgfWRyaWNrIiwiZW1haWwiOiJsYXVyZW50aXVzZWRyaWNAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMDUkVWFoS0RqZlZTSTViSktHUE1YOHovZUdXY1oxNmZPeWlpasdasdnEiLCJvcmdhbml6YXRpb24iOiJIYWNrdGl2OCIsInVwZGF0ZWRBdxcvbnxvbnyDg6NTY6NTEuOTQzWiIsImNyZWF0ZWRBdCI6IjIwMjAtMDgtMTRUMDg6NTY6NTEuOTQzWiIsImlhdCI6MTU5NzM5NTQxMn0.Yzf7ASzXCr4i56hZXxtFA1aE95guf5dXXtYuDcBJAZM"
+        }
+
+* Error Response:
+
+        Code: 400 BAD REQUEST
+        Content: { message : "Validation error" }
+        
+        Code: 500 INTERNAL ERROR
+        Content: { message : "Internal error" }
+
+## GET user cart:
+
+* URL:
+
+        /carts
+
+* Method:
+
+        GET
+
+* URL Params:
+
+        None
+
+* Data Params:
+
+        Required headers:
+        
+        access_token=[string]
+
+* Success Response:
+
+        Code: 200 OK
+        Content: [{
+                ProductId: 1,
+                UserId: 1,
+                amount: 5,
+                history: false
+                Product: {Product info #1}
+        },{
+                ProductId: 3,
+                UserId: 1,
+                amount: 2-0,
+                history: false
+                Product: {Product info #3}
+        }]
+
+* Error Response:
+
+        Code: 400 BAD REQUEST
+        Content: { message : "Invalid token" }
+        
+        Code: 500 INTERNAL ERROR
+        Content: { message : "Internal error" }
+        
+ ## POST user cart:
+
+* URL:
+
+        /carts
+
+* Method:
+
+        POST
+
+* URL Params:
+
+        None
+
+* Data Params:
+
+        Required:
+
+        ProductId=[string]
+        amount=[integer]
+        
+        Required headers:
+        
+        access_token=[string]
+
+* Success Response:
+
+        Code: 200 OK
+        Content: {
+                ProductId: 1,
+                UserId: 1,
+                amount: 20,
+                history: false
+                Product: {Product info #1}
+        }
+
+* Error Response:
+
+        Code: 400 BAD REQUEST
+        Content: { message : "Invalid token" }
+        
+        Code: 400 BAD REQUEST
+        Content: { message : "Validation Error" }
+        
+        Code: 500 INTERNAL ERROR
+        Content: { message : "Internal error" }
+

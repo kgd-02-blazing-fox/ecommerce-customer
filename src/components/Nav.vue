@@ -9,7 +9,7 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <div id="nav" class="row ml-3">
+        <div id="nav" class="row ml-3 hovers">
           <div class="mr-2" @click="closeCart">
           <router-link to="/">products</router-link>
           </div>
@@ -35,12 +35,12 @@
                 <i class="fas fa-user"></i> Welcome <b> {{user}} </b>
               </em>
             </template>
-            <b-dropdown-item href="#"> <i class="fas fa-money-bill-wave-alt"></i> <b> foxPay </b> : 0 </b-dropdown-item>
-            <b-dropdown-item @click.prevent="logout"><i class="fas fa-sign-out-alt"></i> LOG OUT</b-dropdown-item>
+            <b-dropdown-item href="#"> <i class="fas fa-money-bill-wave-alt hovers"></i> <b> foxPay </b> : 0 </b-dropdown-item>
+            <b-dropdown-item @click.prevent="logout"><i class="fas fa-sign-out-alt hovers"></i> LOG OUT</b-dropdown-item>
           </b-nav-item-dropdown>
 
           <b-navbar-nav v-if="!isLogin" right>
-            <div id="nav">
+            <div id="nav" class="hovers">
               <router-link to="/login">
               LOGIN <i class="fas fa-sign-in-alt"></i></router-link>
             </div>
@@ -84,5 +84,7 @@ export default {
 </script>
 
 <style scoped>
-
+.hovers{
+  cursor: pointer;
+}
 </style>

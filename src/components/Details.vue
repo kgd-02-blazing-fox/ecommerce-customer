@@ -18,8 +18,10 @@
                     <b-form-input id="range-1" v-model="quantity" type="range" min="1" max="5"></b-form-input>
                   </div>
                 </form>
-                <a @click.prevent="addNewToCart(product.id)" class="card-link">add {{ quantity }} to cart</a>
-                <b-link @click.prevent="back" class="card-link">another product</b-link>
+                <div class="hovers">
+                <a @click.prevent="addNewToCart(product.id)" class="card-link"> <i class="fas fa-check-square"></i> add {{ quantity }} to cart</a>
+                <b-link @click.prevent="back" class="card-link"><i class="fas fa-undo-alt"></i> another product</b-link>
+                </div>
 
           </b-card-body>
         </b-col>
@@ -69,6 +71,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.hovers{
+  cursor: pointer;
+}
 </style>

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col" >
         <div class="mt-2">
-        <div @click.prevent="closeCart" class="row d-flex flex-row-reverse mr-1">
+        <div @click.prevent="closeCart" class="row d-flex flex-row-reverse mr-1 hovers">
           <i class="fas fa-window-close fa-lg"></i>
         </div>
         <h3><i class="fas fa-shopping-cart"></i> {{user}} shooping cart </h3>
@@ -96,5 +96,9 @@ export default {
 #khusus{
   color: #2c3e50;
   text-decoration: none;
+}
+
+.hovers{
+  cursor: pointer;
 }
 </style>

@@ -6,7 +6,7 @@
       :img-src="item.image_url"
       img-top
       tag="article"
-      class="mb-1"
+      class="mb-1 hovers"
     >
       <b-card-text>
         <div class="row">
@@ -44,5 +44,9 @@ export default {
 <style scoped>
 #setWidth {
   width: 100% !important;
+}
+
+.hovers{
+  cursor: pointer;
 }
 </style>

@@ -41,7 +41,7 @@
           <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">total</strong>
             <h5 class="font-weight-bold">{{total}}</h5>
           </li>
-        </ul><a @click.prevent="checkout" class="btn btn-dark rounded-pill py-2 btn-block">finish checkout</a>
+        </ul><a @click.prevent="checkout" class="btn btn-dark rounded-pill py-2 btn-block hovers">finish checkout</a>
       </div>
     </div>
   </div>
@@ -96,6 +96,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.hovers{
+  cursor: pointer;
+}
 </style>

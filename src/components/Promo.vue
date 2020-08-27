@@ -28,5 +28,6 @@ export default {
 #padd{
   padding: 0px;
   margin: 0px;
+  cursor: pointer;
 }
 </style>

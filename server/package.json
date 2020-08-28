@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Providing a E-commerce services which can be added, manipulated, and deleted later by admin, and customers",
+  "main": "app.js",
+  "bin": {
+    "server": "http.js"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "google-auth-library": "^6.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.3.2",
+    "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "supertest": "^4.0.2"
+  },
+  "scripts": {
+    "dev": "(SET NODE_ENV=development) & nodemon bin/http.js",
+    "test": "(SET NODE_ENV=test) & npx jest --verbose --coverage --detectOpenHandles --runInBand --forceExit",
+    "start": "node bin/http.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

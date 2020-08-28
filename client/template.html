@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-signin-client_id"
+    content="124739969343-prbrk319k79id28m8304jhq25r3ugce4.apps.googleusercontent.com">
+  <link rel="icon" href="./trolley.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;700&display=swap" rel="stylesheet">
+  <title>E-Commerce</title>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-light justify-content-between" style="background-color: rgb(165, 82, 243);">
+    <div class="container">
+      <a class="navbar-brand" href="">
+        <img src="./trolleywhite.png" alt="E-commerce" height="30">
+        <span style="font-weight: 700; color: white;;"> E-commerce</span>
+      </a>
+      <form class="form-inline">
+        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"
+          type="submit">Logout</button>
+        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"
+          type="submit">Login</button>
+        <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);"
+          type="submit">Register</button>
+      </form>
+    </div>
+  </nav>
+
+
+  <!-- login card -->
+  <div class="container-fluid mt-5">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="border col-md-5" style="padding: 30px; border-radius: 40px;">
+          <h2 class="justify-content-center text-center">E-Commerce Customer Login</h2><br>
+          <form id="form-login">
+            <div class="form-group">
+              <label for="login-email">Email address</label>
+              <input type="email" class="form-control" placeholder="johndoe@mail.com" required>
+              <p style="color: red;">*Please enter your email</p>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" class="form-control" placeholder="******" required>
+              <p style="color: red;">*Please enter your password</p>
+            </div>
+            <div class="row" style="display: flex; flex-direction: column; margin: auto; align-items: center;">
+              <button type="submit" class="btn btn-primary" style="width: 100px;">Login</button><br>
+              <div class="g-signin2" data-onsuccess="onSignIn"></div><br>
+            </div>
+          </form>
+          <div class="col-md-12 text-center">
+            <p style="color: red;">Sorry! Something went wrong!</p>
+            <p class="text-secondary">Doesn't have account yet? <span onclick="" class="text-primary">Register</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- register card -->
+  <div class="container-fluid mt-5">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="border col-md-5" style="padding: 30px; border-radius: 40px;">
+          <h3 class="justify-content-center text-center">E-Commerce Customer Register</h3><br>
+          <form id="form-register">
+            <div class="form-group">
+              <label for="register-email">Name</label>
+              <input type="email" class="form-control" placeholder="John Doe" required>
+              <p style="color: red;">*Please enter your name</p>
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email address</label>
+              <input type="email" class="form-control" placeholder="johndoe@mail.com" required>
+              <p style="color: red;">*Please enter your email</p>
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <input type="password" class="form-control" placeholder="******" required>
+              <p style="color: red;">*Please enter your password</p>
+            </div>
+            <div class="row" style="display: flex; flex-direction: column; margin: auto; align-items: center;">
+              <button type="submit" class="btn" style="width: 100px;">Submit</button><br>
+            </div>
+          </form>
+          <div class="col-md-12 text-center">
+            <p style="color: red;">Sorry! Something went wrong!</p>
+            <p class="text-secondary">Already have an account? <span onclick=""class="text-primary">Login</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- main body -->
+  <div class="container mt-3">
+    <!-- sub nav -->
+    <div class="row border px-2 bg-light justify-content-between py-auto" style="border-radius: 15px;">
+        <div class="d-inline d-lg-none d-xl-none">
+          <input type="text" id="search-sm" class="bg-light rounded d-inline" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" placeholder="Search.."> on 
+          <select id="search-sm" class="d-inline bg-transparent" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);">
+            <option value="">None</option>
+          </select> <br>
+        </div>
+        <div class="d-none d-lg-block d-xl-block">
+
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+          <!-- subnav button - visible on smaller size -->
+          <label class="btn btn-light btn-sm my-auto">
+            <input type="button" name="button" style="display: none;" ><i class="fas fa-store-alt" style="color:rgb(165, 82, 243)"></i>
+            <span class="d-none d-md-inline d-lg-inline d-xl-inline"> Home</span>
+          </label>
+          <label class="btn btn-light btn-sm my-auto ">
+            <input type="button" name="button" style="display: none;" ><i class="fas fa-shopping-cart" style="color:rgb(165, 82, 243)"></i>
+            <span class="d-none d-md-inline d-lg-inline d-xl-inline"> Checkout</span>
+          </label>
+          <label class="btn btn-light btn-sm my-auto border-right">
+            <input type="button" name="button" style="display: none;" ><i class="fas fa-history" style="color:rgb(165, 82, 243)"></i>
+            <span class="d-none d-md-inline d-lg-inline d-xl-inline"> Purchase History</span>
+          </label>
+          <!-- subnav button - visible on any size -->
+          <label class="btn btn-light btn-sm my-auto border-left">
+            <input type="button" name="button" id="option1"  style="display: none;" checked><i class="fas fa-th-large" style="color:rgb(165, 82, 243)"></i>
+          </label>
+          <label class="btn btn-light btn-sm my-auto">
+            <input type="button" name="button" id="option2" style="display: none;" ><i class="fas fa-list" style="color:rgb(165, 82, 243)"></i>
+          </label>
+            
+        </div>
+    </div>
+    
+    <!-- main catalog -->
+    <div class="row mt-3">
+      <!-- left container -->
+      <div class="col-xl-3 col-lg-3 col-md-3 d-none d-lg-block d-xl-block border-right p-4 text-right" style="min-height: 15vh;">
+        <!-- filter -->
+        
+        <label for="search">Search:</label> <br>
+        <input type="text" name="" id="search-lg" class="w-100" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" placeholder="Insert item name here..">
+        <br>
+        <br>
+        <label for="filter">Filter by Category:</label> <br>
+        <select name="" id="filter-lg" class="w-100" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);">
+          <option value="">None</option>
+        </select> <br>
+  
+        <!-- Carts & Fave -->
+
+        <div class="container-fluid">
+          <br>
+          <h4 class="text-left">Favorited:</h4>
+            <div class="row" style="max-height: 45vh; overflow-y: auto;">
+              <!-- Fave Cards -->
+              <div class="col-12 p-0 m-0 h-100 text-center" style="color: grey;">
+                <h5>You do not have any yet!</h5>
+              </div>
+
+              <div class="col-3 p-0 m-0 h-100">
+                <img
+                src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
+                alt="No image Preview" style="max-height: 50px; object-fit: cover;">
+              </div>
+              <div class="col-9 p-0 m-0 h-100 d-inline">
+                <label class="btn btn-white btn-sm float-right ">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
+                </label>
+                <div class="card-body text-left pt-0 mt-2">
+                  <span class="card-title" style="font-size: 0.8em;">Kaos Eiger</span>
+                </div>
+              </div>
+
+              <div class="col-3 p-0 m-0 h-100">
+                <img
+                src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
+                alt="No image Preview" style="max-height: 50px; object-fit: cover;">
+              </div>
+              <div class="col-9 p-0 m-0 h-100 d-inline">
+                <label class="btn btn-white btn-sm float-right ">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
+                </label>
+                <div class="card-body text-left pt-0 mt-2">
+                  <span class="card-title" style="font-size: 0.8em;">Kaos Eiger</span>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        
+
+
+
+
+      <!-- right container -->
+      
+      <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 overflow"
+        style="height: 80vh;min-width: 50%; overflow-y: auto;">
+        <div class="row">
+
+          <!-- cards - block -->
+          <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 mt-4" style="min-height: 45vh;">
+            <div class="card border-5 rounded shadow" style="width: 100%; min-height: 100%;">
+              <img class="card-img-top mx-auto my-3"
+                src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
+                alt="No image Preview" style="max-width: 120px;">
+              <div class="card-body text-left pt-0">
+                <p class="card-title text-center">Kaos Eiger geometri unisex</p>
+                <span class="card-text" style="font-size:0.8em;">Rp.132.000,00</span> <br>
+                <span class="card-text" style="font-size:0.8em;">Stok: 22</span> <br>
+                <label class="btn btn-white btn-lg float-right mb-0">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
+                </label>
+                <label class="btn btn-white btn-lg float-right mb-0">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-info-circle" style="color:gray"></i>
+                </label>
+              </div>
+              
+            </div>
+          </div> -->
+
+          <!-- cards - list -->
+          <!-- <div class="container p-2" style="height: 180px;">
+            <div class="row border m-2">
+              <div class="col-3 p-0 m-0 h-100">
+                <img
+                src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
+                alt="No image Preview" style="max-height: 140px; object-fit: cover;">
+              </div>
+              <div class="col-9 p-0 m-0 h-100 d-inline">
+                <label class="btn btn-white btn-lg float-right ">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-heart" style="color:red"></i>
+                </label>
+                <label class="btn btn-white btn-lg float-right mb-0">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-info-circle" style="color:gray"></i>
+                </label>
+                <div class="card-body text-left pt-0 mt-2">
+                  <h4 class="card-title">Kaos Eiger geometri unisex</h4>
+                  <span class="card-text">Rp.132.000,00</span> <br>
+                  <span class="card-text">Stok: 22</span> <br>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+
+          <!-- Item Detail -->
+          <!-- <div class="container p-5">
+            <div class="text-center">
+              <img src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg" alt="Gambar">
+              <br>
+              <br>
+              <div>
+                <h1>Kaos Eiger geometri unisex</h1>
+                <h4 class="text-secondary">Rp.132.000,00</h4>
+                <h4 class="text-secondary">Warehouse Stock : 22</h4>
+                <h4 class="text-secondary">Category : Clothes</h4>
+
+                <div class="container d-inline-flex justify-content-center">
+                  <label class="btn btn-white btn-lg mb-0">
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-left" style="color:rgb(165, 82, 243)"></i>
+                  </label>
+
+                  <label class="btn btn-white btn-lg mb-0">
+                    <input type="text" name="text" class="w-25 text-center" value="1" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" ></i>
+                  </label>
+
+                  <label class="btn btn-white btn-lg mb-0">
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-right" style="color:rgb(165, 82, 243)"></i>
+                  </label>
+                </div>
+                <button class="btn btn-outline-light mx-1 mx-auto mt-2" style="background-color: rgb(193, 130, 252);" >Add to Cart</button>
+                <p style="color: red;" class="mt-2">Sorry! Something went wrong!</p>
+              </div>
+              </div>
+            </div>
+            <div class="pt-5 container-fluid d-inline justify-content-between">
+              
+                <button class="btn btn-success" >Back</button>
+              <label class="btn btn-white btn-lg float-right ">
+                <input type="button" name="button" style="display: none;" ><i class="fas fa-heart" style="color:red"></i>
+              </label>
+              <label class="btn btn-white btn-lg float-right ">
+                <input type="button" name="button" style="display: none;" ><i class="fas fa-heart-broken" style="color:red"></i>
+              </label>
+      
+              
+
+            </div>
+          </div> -->
+
+          <!-- checkout -->
+
+          
+
+          <div class="container p-2" style="height: 140px;">
+            <h1 style="font-weight: 700;color:rgb(165, 82, 243)">Checkout:</h1> <br>
+
+            <!-- checkout cards -->
+            <div class="row border-bottom m-2">
+              <div class="col-3 p-0 m-0 h-100">
+                <img
+                src="https://d2pa5gi5n2e1an.cloudfront.net/webp/service/id/images/mens-fashion/price/11022/11022450/MF_kaos_eiger_sketch_geometri_910004899_1.jpg"
+                alt="No image Preview" style="max-height: 100px; object-fit: cover;">
+              </div>
+              <div class="col-9 p-0 m-0 h-100 d-inline">
+                <label class="btn btn-white btn-lg float-right ">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-trash-alt" style="color:rgb(165, 82, 243)"></i>
+                </label>
+                <label class="btn btn-white btn-lg float-right mb-0">
+                  <input type="button" name="button" style="display: none;" ><i class="fas fa-edit"  style="color:rgb(165, 82, 243)"></i>
+                </label>
+                <div class="card-body text-left pt-0 mt-2">
+                  <h4 class="card-title">Kaos Eiger geometri unisex</h4>
+                  <span class="card-text">Rp.132.000,00</span> <br>
+                  <span class="card-text">Stok: 22</span> <br>
+                  <label class="btn btn-white btn-lg float-right mb-0 p-0">
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-check-circle" style="color:green"></i>  
+                  </label>
+                  <label class="float-right mb-0" style="width: 120px">    
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-left" style="color:rgb(165, 82, 243)"></i>
+                    <input type="text" name="text" class="w-25 text-center" value="1" style="border: none; border-bottom: 1.5px solid rgba(193, 130, 252, 0.6);" ></i>
+                    <input type="button" name="button" style="display: none;" ><i class="fas fa-chevron-circle-right" style="color:rgb(165, 82, 243)"></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <h3 style=" font-weight: 700;">Total: Rp.332.000,00</h3>
+              <button class="btn btn-outline-light my-2 my-sm-0 mx-1" style="background-color: rgb(193, 130, 252);" type="submit">Checkout</button>
+          <br><h3 style=" color: green;">Thank you for purchasing! You will be redirected soon..</h3>
+            </div>
+
+            
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</body>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://kit.fontawesome.com/98a52df2f9.js" crossorigin="anonymous"></script>
+<style>
+  * {
+    font-family: 'Nunito', sans-serif;
+  }
+  input:focus {
+    outline: none;
+  }
+  select:focus {
+    outline: none;
+  }
+  input:placeholder-shown {
+   font-style: italic;
+  }
+</style>
+
+</html>

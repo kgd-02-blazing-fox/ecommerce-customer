@@ -6,3 +6,8 @@ const server = axios.create({
 })
 
 export default server
+
+// * Client-Side-Customer Deploy Link:
+//     https://e-commerce-cms-customer.web.app/
+
+// -----

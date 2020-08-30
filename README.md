@@ -29,7 +29,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Data
 -----
 
-* Client-Side-Customer Deploy Link:
-    https://e-commerce-cms-customer.web.app/
-
------
